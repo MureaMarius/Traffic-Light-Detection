@@ -1,0 +1,71 @@
+#include <iostream>
+
+using namespace std;
+
+int main()
+{
+	int n;
+	cin >> n;
+
+	int m[5][5];
+	int i, j;
+	for (i = 0; i < n; i++)
+	{
+		for (j = 0; j < n; j++)
+		{
+			cin >> m[i][j];
+		}
+	}
+
+	/*
+		1 2 3 4
+		5 4 3 2
+		1 2 3 4
+		5 4 3 2
+	*/
+
+	int x = 0;
+	int y = 0;
+	cout << endl << endl;
+	while (1)
+	{
+		int lines = 0;
+		for (i = x; i < n; i++)
+		{
+			if (lines == 2)
+			{
+				break;
+			}
+
+			int count = 0;
+			for (j = y; j < n; j++)
+			{
+				if (count == 2)
+				{
+					break;
+				}
+				cout << i << ',' << j << ' ';
+				count++;
+			}
+			lines++;
+		}
+		cout << endl;
+
+		if (j == n)
+		{
+			x += 2;
+			y = 0;
+		}
+		else
+		{
+			y += 2;
+		}
+
+		if (i == n && j == n)
+		{
+			break;
+		}
+	}
+
+	return 0;
+}
